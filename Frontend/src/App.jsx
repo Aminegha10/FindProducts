@@ -2,7 +2,13 @@ import { Search, ChefHat, Zap, Shield, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import HeroSection from "./components/heroSection";
 import FetchedProducts from "./components/FetchedProducts";
+import Navbar from "./components/Navbar";
+import { useState } from "react";
+import { store } from "./app/store.js";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 export default function ApplianceLanding() {
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-200 via-purple-200 to-indigo-300 p-4 flex items-center justify-center">
       <div className="w-full max-w-6xl bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden">
@@ -15,32 +21,7 @@ export default function ApplianceLanding() {
             <span className="text-xl font-bold text-gray-800">KitchenPro</span>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8">
-            <a
-              href="#"
-              className="text-gray-600 hover:text-indigo-600 transition-colors"
-            >
-              Products
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-indigo-600 transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-indigo-600 transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-indigo-600 transition-colors"
-            >
-              Reviews
-            </a>
-          </nav>
+          <Navbar />
 
           <Button className="bg-indigo-700 hover:bg-indigo-800 text-white px-6 py-2 rounded-lg font-medium">
             SHOP NOW

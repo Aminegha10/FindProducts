@@ -1,10 +1,19 @@
-import { Search, ChefHat, Zap, Shield, Star } from "lucide-react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
+import { Search, ChefHat, Zap, Shield, Star } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
-
+import { setSearchItem } from "../app/products";
+import { useDispatch, useSelector } from "react-redux";
 const heroSection = () => {
+  const { searchItem } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
   return (
     <div className="text-center mb-12">
       <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-8">
@@ -18,6 +27,7 @@ const heroSection = () => {
           <Input
             placeholder="Search for appliances..."
             className="pl-10 py-3 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500"
+            onChange={(e) => dispatch(setSearchItem(e.target.value))}
           />
         </div>
 

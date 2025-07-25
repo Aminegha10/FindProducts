@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { products } from "./products";
+import productsReducer from "./products.js";
 
 export const store = configureStore({
   reducer: {
-    [products.reducerPath]: products.reducer, // RTK Query API for Products
+    products: productsReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(products.middleware),
 });
